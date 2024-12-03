@@ -1,15 +1,16 @@
-import type { ComponentProps } from "react";
-import { twMerge } from "tailwind-merge";
+import type { ComponentProps } from 'react'
+import { twMerge } from 'tailwind-merge'
 
-type CreditCardBackProps = ComponentProps<"div">;
+type CreditCardBackProps = ComponentProps<'div'>
 
 export function CreditCardBack({ className }: CreditCardBackProps) {
   return (
-    <div
-      className={twMerge(
-        "bg-[url(./bg-card-back.png)] w-[447px] h-[245px] px-6 py-4 rounded-xl",
-        className
-      )}
-    ></div>
-  );
+    <div className={twMerge('relative rounded-xl', className)}>
+      <img src="./bg-card-back.png" alt="" />
+
+      <span className="absolute right-11 top-[calc(50%-0.125rem)] -translate-x-1/2 -translate-y-1/2 text-white">
+        000
+      </span>
+    </div>
+  )
 }
