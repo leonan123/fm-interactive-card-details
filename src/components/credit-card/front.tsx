@@ -2,6 +2,7 @@ import type { ComponentProps } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { twMerge } from 'tailwind-merge'
 import type { FormCreditCardSchema } from '../../app'
+import { formatCardNumber } from '../../helpers/format-card-number'
 
 type CreditCardFrontProps = ComponentProps<'div'>
 
@@ -9,7 +10,8 @@ export function CreditCardFront({ className }: CreditCardFrontProps) {
   const { watch } = useFormContext<FormCreditCardSchema>()
 
   const cardholderName = watch('cardholderName') || 'JANE APPLESEED'
-  const cardNumber = watch('cardNumber') || '0000 0000 0000 0000'
+  const cardNumber =
+    formatCardNumber(watch('cardNumber')) || '0000 0000 0000 0000'
   const expDateMonth = watch('expDateMonth') || '00'
   const expDateYear = watch('expDateYear') || '00'
 

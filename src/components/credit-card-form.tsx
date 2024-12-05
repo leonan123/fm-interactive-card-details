@@ -2,17 +2,21 @@ import { useFormContext } from 'react-hook-form'
 import type { FormCreditCardSchema } from '../app'
 import { Input } from './input'
 import { Label } from './label'
+import { formatCardNumber } from '../helpers/format-card-number'
 
 export function CreditCardForm() {
   const {
     handleSubmit,
     register,
+    watch,
     formState: { errors },
   } = useFormContext<FormCreditCardSchema>()
 
   function onSubmit(data: FormCreditCardSchema) {
     console.log(data)
   }
+
+  const cardNumber = formatCardNumber(watch('cardNumber')) || ''
 
   return (
     <form className="max-w-[480px] space-y-4" onSubmit={handleSubmit(onSubmit)}>
@@ -43,6 +47,7 @@ export function CreditCardForm() {
           maxLength={19}
           id="cardNumber"
           invalid={!!errors.cardNumber}
+          value={cardNumber}
           {...register('cardNumber')}
         />
 

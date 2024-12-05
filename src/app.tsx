@@ -1,7 +1,5 @@
 import { FormProvider, useForm } from 'react-hook-form'
 import * as CreditCard from './components/credit-card'
-import { Input } from './components/input'
-import { Label } from './components/label'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CreditCardForm } from './components/credit-card-form'
