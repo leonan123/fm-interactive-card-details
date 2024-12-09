@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Solution](https://your-solution-url.com)
+- Solution URL: [Solution](https://www.frontendmentor.io/solutions/interactive-card-details-murFxRkOLK)
 - Live Site URL: [Live site](https://leonan123.github.io/fm-interactive-card-details/)
 
 ### Built with
