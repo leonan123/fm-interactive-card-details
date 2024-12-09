@@ -22,6 +22,8 @@ export function CreditCardFront({ className }: CreditCardFrontProps) {
         className,
       )}
     >
+      <img src="./bg-card-front.png" alt="" className="hidden" />
+
       <div className="flex size-full flex-col justify-between">
         <div className="flex items-center gap-3">
           <div className="size-8 rounded-full bg-white"></div>
