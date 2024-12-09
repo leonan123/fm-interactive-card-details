@@ -4,7 +4,11 @@ import { Input } from './input'
 import { Label } from './label'
 import { formatCardNumber } from '../helpers/format-card-number'
 
-export function CreditCardForm() {
+interface CreditCardFormProps {
+  onSubmit: (data: FormCreditCardSchema) => void
+}
+
+export function CreditCardForm({ onSubmit }: CreditCardFormProps) {
   const {
     handleSubmit,
     register,
@@ -12,14 +16,13 @@ export function CreditCardForm() {
     formState: { errors },
   } = useFormContext<FormCreditCardSchema>()
 
-  function onSubmit(data: FormCreditCardSchema) {
-    console.log(data)
-  }
-
   const cardNumber = formatCardNumber(watch('cardNumber')) || ''
 
   return (
-    <form className="max-w-[480px] space-y-4" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="max-w-[470px] space-y-6 px-4 pb-4"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div className="flex flex-col gap-1">
         <Label htmlFor="cardholderName">CARDHOLDER NAME</Label>
 
@@ -58,10 +61,11 @@ export function CreditCardForm() {
         )}
       </div>
 
-      <div className="flex items-baseline gap-5">
+      <div className="flex flex-col items-baseline gap-5 xs:flex-row">
         <div className="flex flex-col gap-1">
           <Label htmlFor="expDateMonth">EXP. DATE (MM/YY)</Label>
-          <div className="flex w-full gap-2">
+
+          <div className="flex gap-2">
             <Input
               inputMode="numeric"
               maxLength={2}
@@ -90,7 +94,7 @@ export function CreditCardForm() {
           ) : null}
         </div>
 
-        <div className="flex flex-col gap-1">
+        <div className="flex w-full flex-col gap-1 xs:w-1/2">
           <Label htmlFor="cvc">CVC</Label>
 
           <Input
@@ -111,7 +115,7 @@ export function CreditCardForm() {
       </div>
 
       <div>
-        <button className="mt-3 h-14 w-full rounded-lg bg-very-dark-violet text-white transition-opacity hover:opacity-95">
+        <button className="mt-4 h-12 w-full rounded-lg bg-very-dark-violet text-white transition-opacity hover:opacity-95">
           Confirm
         </button>
       </div>

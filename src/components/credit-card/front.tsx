@@ -18,7 +18,7 @@ export function CreditCardFront({ className }: CreditCardFrontProps) {
   return (
     <div
       className={twMerge(
-        'h-[245px] w-[447px] rounded-xl bg-[url(./bg-card-front.png)] px-6 py-5',
+        'aspect-video w-[min(65vw,447px)] min-w-[264px] select-none rounded-xl bg-[url(./bg-card-front.png)] bg-cover bg-no-repeat px-6 py-5 shadow-lg max-lg:w-[min(65vw,350px)]',
         className,
       )}
     >
@@ -29,7 +29,7 @@ export function CreditCardFront({ className }: CreditCardFrontProps) {
         </div>
 
         <div className="space-y-4 text-white">
-          <p className="text-3xl tracking-wider">{cardNumber}</p>
+          <p className="tracking-wider lg:text-3xl">{cardNumber}</p>
 
           <div className="flex items-center justify-between text-xs">
             <span>{cardholderName.toUpperCase()}</span>
