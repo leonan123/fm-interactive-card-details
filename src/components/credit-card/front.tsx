@@ -18,13 +18,17 @@ export function CreditCardFront({ className }: CreditCardFrontProps) {
   return (
     <div
       className={twMerge(
-        'aspect-video w-[min(65vw,447px)] min-w-[264px] select-none rounded-xl bg-[url(./bg-card-front.png)] bg-cover bg-no-repeat px-6 py-5 shadow-lg max-lg:w-[min(65vw,350px)]',
+        'relative aspect-video w-[min(65vw,447px)] min-w-[264px] select-none overflow-hidden rounded-xl px-6 py-5 shadow-lg max-lg:w-[min(65vw,350px)]',
         className,
       )}
     >
-      <img src="./bg-card-front.png" alt="" className="hidden" />
+      <img
+        src="./bg-card-front.png"
+        alt=""
+        className="absolute inset-0 -z-10 size-full object-cover"
+      />
 
-      <div className="flex size-full flex-col justify-between">
+      <div className="z-10 flex size-full flex-col justify-between">
         <div className="flex items-center gap-3">
           <div className="size-8 rounded-full bg-white"></div>
           <div className="size-4 rounded-full border border-white bg-transparent"></div>
