@@ -18,7 +18,7 @@ export function CreditCardFront({ className }: CreditCardFrontProps) {
   return (
     <div
       className={twMerge(
-        'aspect-video w-[min(65vw,447px)] min-w-[264px] select-none rounded-xl bg-[url(./bg-card-front.png)] bg-cover bg-no-repeat px-6 py-5 shadow-lg max-lg:w-[min(65vw,350px)]',
+        'aspect-video w-[min(65vw,447px)] min-w-[264px] select-none rounded-xl bg-[url(bg-card-front.png)] bg-cover bg-no-repeat px-6 py-5 shadow-lg max-lg:w-[min(65vw,350px)]',
         className,
       )}
     >
